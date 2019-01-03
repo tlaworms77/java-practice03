@@ -16,32 +16,30 @@ public class CalcApp {
 			String tokens[] = expression.split(" ");
 			int a = Integer.parseInt(tokens[0]);
 			int b = Integer.parseInt(tokens[2]);
+			String operator = tokens[1];
 			
-			switch (tokens[1]) {
+			Arith arith = null;
+			
+			switch (operator) {
 			case "+":
-				Add addObj = new Add();
-				addObj.setValue(a, b);
-				System.out.println(">> " + addObj.calculate());
+				arith = new Add();
 				break;
 			case "-":
-				Sub subObj = new Sub();
-				subObj.setValue(a, b);
-				System.out.println(">> " + subObj.calculate());
+				arith = new Sub();
 				break;
 			case "*":
-				Mul mulObj = new Mul();
-				mulObj.setValue(a, b);
-				System.out.println(">> " + mulObj.calculate());
+				arith = new Mul();
 				break;
 			case "/":
-				Div divObj = new Div();
-				divObj.setValue(a, b);
-				System.out.println(">> " + divObj.calculate());
+				arith = new Div();
 				break;
 			default:
 				System.out.println("없는 연산자입니다. 다시입력하세요.(+, -, *, /)");
 				break;
 			}
+			arith.setValue(a, b);
+			int result = arith.calculate();
+			System.out.println(">> " + result);
 			System.out.println("계속 하시겠습니까?(y/n)");
 			System.out.print(">> ");
 			String checkflag = scanner.nextLine();
