@@ -13,6 +13,6 @@ public class Div {
 		this.b = b;
 	}
 	public int calculate() {
-		return a-b;
+		return a/b;
 	}
 }

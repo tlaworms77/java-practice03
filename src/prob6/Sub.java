@@ -13,6 +13,6 @@ public class Sub {
 		this.b = b;
 	}
 	public int calculate() {
-		return a/b;
+		return a-b;
 	}
 }
